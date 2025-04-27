@@ -51,24 +51,39 @@
 
         <!-- Sentry Config -->
         <!-- Disable Sentry exception tracking so we can turn it on based on the user preference -->
-        <meta-data
-            android:name="io.sentry.auto-init"
-            android:value="false" />
-        <meta-data
-            android:name="dev.mslalith.focuslauncher.sentryDsn"
-            android:value="${sentryDsn}" />
-        <meta-data
-            android:name="io.sentry.environment"
-            android:value="${sentryEnvironment}" />
 <!--        <meta-data-->
-<!--            android:name="io.sentry.debug"-->
+<!--            android:name="io.sentry.auto-init"-->
+<!--            android:value="false" />-->
+<!--        <meta-data-->
+<!--            android:name="dev.mslalith.focuslauncher.sentryDsn"-->
+<!--            android:value="${sentryDsn}" />-->
+<!--        <meta-data-->
+<!--            android:name="io.sentry.environment"-->
+<!--            android:value="${sentryEnvironment}" />-->
+<!--&lt;!&ndash;        <meta-data&ndash;&gt;-->
+<!--&lt;!&ndash;            android:name="io.sentry.debug"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:value="true" />&ndash;&gt;-->
+<!--        <meta-data-->
+<!--            android:name="io.sentry.traces.user-interaction.enable"-->
 <!--            android:value="true" />-->
-        <meta-data
-            android:name="io.sentry.traces.user-interaction.enable"
-            android:value="true" />
-        <meta-data
-            android:name="io.sentry.attach-view-hierarchy"
-            android:value="true" />
+<!--        <meta-data-->
+<!--            android:name="io.sentry.attach-view-hierarchy"-->
+<!--            android:value="true" />-->
+
+
+            <!-- Required: set your sentry.io project identifier (DSN) -->
+            <meta-data android:name="io.sentry.dsn" android:value="https://c0d5bc411eda3fe8ee191f7cd96f76ff@o4509221415813120.ingest.us.sentry.io/4509226607902720" />
+
+            <!-- Add data like request headers, user ip adress and device name, see https://docs.sentry.io/platforms/android/data-management/data-collected/ for more info -->
+            <meta-data android:name="io.sentry.send-default-pii" android:value="true" />
+
+            <!-- enable automatic breadcrumbs for user interactions (clicks, swipes, scrolls) -->
+            <meta-data android:name="io.sentry.traces.user-interaction.enable" android:value="true" />
+            <!-- enable screenshot for crashes -->
+            <meta-data android:name="io.sentry.attach-screenshot" android:value="true" />
+            <!-- enable view hierarchy for crashes -->
+            <meta-data android:name="io.sentry.attach-view-hierarchy" android:value="true" />
+
 
     </application>
 

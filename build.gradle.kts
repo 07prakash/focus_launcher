@@ -1,4 +1,4 @@
-apply(from = "./buildScripts/install-git-hooks.gradle.kts")
+//apply(from = "./buildScripts/install-git-hooks.gradle.kts")
 
 plugins {
     alias(libs.plugins.android.application) apply false
@@ -11,7 +11,7 @@ plugins {
     alias(libs.plugins.android.test) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.baselineprofile) apply false
-    alias(libs.plugins.sentry) apply false
+//    alias(libs.plugins.sentry) apply false
 }
 
 allprojects {

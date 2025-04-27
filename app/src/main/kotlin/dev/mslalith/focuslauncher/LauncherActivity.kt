@@ -24,7 +24,8 @@ import dev.mslalith.focuslauncher.core.ui.providers.ProvideSystemUiController
 import dev.mslalith.focuslauncher.feature.theme.LauncherTheme
 import dev.mslalith.focuslauncher.feature.theme.LauncherThemePresenter
 import kotlinx.coroutines.launch
-import javax.inject.Inject
+import javax.inject.Injectimport io.sentry.Sentry
+
 
 @AndroidEntryPoint
 @IgnoreInKoverReport
@@ -42,6 +43,15 @@ class LauncherActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         installSplashScreen()
         super.onCreate(savedInstanceState)
+    // waiting for view to draw to better represent a captured error with a screenshot
+    findViewById<android.view.View>(android.R.id.content).viewTreeObserver.addOnGlobalLayoutListener {
+      try {
+        throw Exception("This app uses Sentry! :)")
+      } catch (e: Exception) {
+        Sentry.captureException(e)
+      }
+    }
+
         WindowCompat.setDecorFitsSystemWindows(window, false)
 
         setContent {

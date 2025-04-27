@@ -6,7 +6,9 @@ plugins {
     alias(libs.plugins.kotlinx.kover)
     alias(libs.plugins.android.application)
     alias(libs.plugins.baselineprofile)
-    id("focuslauncher.sentry")
+//    id("focuslauncher.sentry")
+//
+   id("io.sentry.android.gradle") version "5.4.0"
 }
 
 android {
@@ -153,3 +155,13 @@ dependencies {
     kover(projects.feature.settingspage)
     kover(projects.feature.theme)
 }
+
+
+//sentry {
+//    org.set("prakash-r5")
+//    projectName.set(focuslauncher)
+//
+//    // this will upload your source code to Sentry to show it as part of the stack traces
+//    // disable if you don't want to expose your sources
+//    includeSourceContext.set(true)
+//}
